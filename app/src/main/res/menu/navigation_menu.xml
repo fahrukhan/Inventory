@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragmentHome"
+        android:title="HOME"
+        android:icon="@drawable/ic_home"
+        app:exb_color="@color/colorPrimary" />
+
+    <item
+        android:id="@+id/fragmentInbound"
+        android:title="INBOUND"
+        android:icon="@drawable/ic_inbound"
+        app:exb_color="@color/green" />
+
+    <item
+        android:id="@+id/fragmentOutbound"
+        android:title="OUTBOUND"
+        android:icon="@drawable/ic_outbound"
+        app:exb_color="@color/red" />
+    <item
+        android:id="@+id/fragmentSearch"
+        android:title="SEARCH"
+        android:icon="@drawable/ic_src"
+        app:exb_color="@color/blue" />
+    <item
+        android:id="@+id/fragmentRead"
+        android:title="READ TAG"
+        android:icon="@drawable/ic_read"
+        app:exb_color="@color/yellow" />
+</menu>
