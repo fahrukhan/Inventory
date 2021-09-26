@@ -39,15 +39,13 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
         dialog = Dialog(this)
         toast = Toast(this)
 
+        val bluetoothManager = this.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
+        mBAdapter = bluetoothManager.adapter
         slide = SlideUpBuilder(slide_view)
             .withStartState(SlideUp.State.HIDDEN)
             .withStartGravity(Gravity.BOTTOM)
-
-            .build();
-
-        slide.show()
-        val bluetoothManager = this.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
-        mBAdapter = bluetoothManager.adapter
+            .build()
+        //slide.show()
 
         setting_bluetooth.setOnClickListener(this)
     }
@@ -57,7 +55,6 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
             setting_bluetooth.id ->{
                 openBTDialog()
             }
-
         }
     }
 
@@ -67,8 +64,6 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
             finish()
         }
         checkBluetooth()
-
-
 //        dialog.setContentView(R.layout.activity_bluetooth)
 //        dialog.show()
     }
@@ -77,8 +72,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
         ActivityResultContracts.StartActivityForResult()
     ){
         if (it.resultCode == Activity.RESULT_OK){
-
             toast.success("Bluetooth ON")
+            slide.show()
         }else{
             toast.warning("Bluetooth hasn't turn on")
             //finish()
@@ -106,9 +101,11 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
             val intent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
             getResult.launch(intent)
         }else{
-            val intent = Intent(this, BluetoothActivity::class.java)
-            startActivity(intent)
-            //btResult.launch(intent)
+                if (slide.isVisible) {
+                    slide.hide()
+                } else {
+                    slide.show()
+                }
         }
     }
 

@@ -1,147 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
     android:orientation="vertical"
     tools:context=".ui.SettingActivity">
 
-    <!--    first menu  -->
+    <!--    Setting Menu -->
     <LinearLayout
-        android:id="@+id/setting_bluetooth"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:gravity="center_vertical"
-        android:weightSum="2"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Bluetooth"/>
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="12dp">
+        <!--    first menu  -->
+        <LinearLayout
+            android:id="@+id/setting_bluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center_vertical"
+            android:weightSum="2"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                app:cardBackgroundColor="@color/red"
-                app:cardCornerRadius="50dp">
-                <TextView
+                android:layout_weight="1"
+                android:text="Bluetooth"/>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/barlow"
-                    android:text="disconnect"/>
-            </androidx.cardview.widget.CardView>
-        </FrameLayout>
+                    android:layout_gravity="end"
+                    app:cardBackgroundColor="@color/red"
+                    app:cardCornerRadius="50dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/barlow"
+                        android:text="disconnect"/>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/lineColor" />
+        <!--    end first menu  -->
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="4dp"
-        android:background="@color/lineColor" />
-    <!--    end first menu  -->
 
-    <LinearLayout
+    <!--    slide up bluetooth menu-->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="-4dp"
         android:id="@+id/slide_view"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:layout_alignParentBottom="true"
+        android:visibility="visible"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingRight="20dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp">
-                <TextView
-                    android:id="@+id/tv_connect"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Disconnected"
-                    style="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/btn_disconnect_bt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:text="Disconnect"
-                    android:visibility="gone"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
-                <ProgressBar
-                    android:id="@+id/pb_scanning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:id="@+id/tv_scanning"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:text="Scanning"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:textStyle="bold"/>
-                <Button
-                    android:id="@+id/btn_cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:text="Cancel"
-                    android:gravity="right"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"/>
-            </LinearLayout>
-            <View
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"/>
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_expand_more"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/no_desc" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-                <ListView
-                    android:id="@+id/new_devices"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-
-                <TextView
-                    android:id="@+id/empty"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not device found"
-                    android:padding="8dp"
-                    style="@style/TextAppearance.AppCompat.Medium"/>
+                    android:orientation="horizontal"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="10dp">
+                    <TextView
+                        android:id="@+id/tv_connect"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@android:color/primary_text_dark"
+                        android:text="Disconnected"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/btn_disconnect_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:text="Disconnect"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+                    <ProgressBar
+                        android:id="@+id/pb_scanning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:id="@+id/tv_scanning"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/secondary_text_dark"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="Scanning"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:id="@+id/btn_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:textColor="@android:color/secondary_text_dark"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:text="Cancel"
+                        android:gravity="right"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+                    <ListView
+                        android:id="@+id/new_devices"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/empty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/secondary_text_dark"
+                        android:text="Not device found"
+                        android:padding="8dp"
+                        style="@style/TextAppearance.AppCompat.Medium"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-</LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
