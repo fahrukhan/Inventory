@@ -48,12 +48,18 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
         //slide.show()
 
         setting_bluetooth.setOnClickListener(this)
+        collapse_slider.setOnClickListener(this)
     }
 
     override fun onClick(btn: View?) {
         when(btn?.id){
-            setting_bluetooth.id ->{
+            setting_bluetooth.id -> {
                 openBTDialog()
+            }
+            collapse_slider.id -> {
+                if (slide.isVisible){
+                    slide.hide()
+                }
             }
         }
     }

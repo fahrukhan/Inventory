@@ -26,7 +26,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bluetooth"/>
+                android:text="@string/bluetooth"/>
 
             <FrameLayout
                 android:layout_width="0dp"
@@ -45,7 +45,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:fontFamily="@font/barlow"
-                        android:text="disconnect"/>
+                        android:text="@string/disconnect"/>
                 </androidx.cardview.widget.CardView>
             </FrameLayout>
         </LinearLayout>
@@ -78,6 +78,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/collapse_slider"
                 android:src="@drawable/ic_expand_more"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/no_desc" />
@@ -142,7 +143,7 @@
                         android:textColor="@android:color/secondary_text_dark"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:text="Cancel"
-                        android:gravity="right"
+                        android:gravity="end"
                         android:textStyle="bold"
                         android:textAllCaps="false"/>
                 </LinearLayout>

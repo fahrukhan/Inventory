@@ -66,15 +66,15 @@ class InboundFragment : Fragment() {
             }
     }
 
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
-
-
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.green)))
+//        with(activity as AppCompatActivity){
+//            supportActionBar?.setBackgroundDrawable(
+//                ColorDrawable(
+//                    ContextCompat.getColor(context, R.color.green)
+//                )
+//            )
+//            window.statusBarColor = ContextCompat.getColor(context, R.color.green)
+//        }
     }
 }

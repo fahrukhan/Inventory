@@ -65,7 +65,7 @@ class SearchFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(
-            ContextCompat.getColor(context, R.color.blue)))
+//        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(
+//            ContextCompat.getColor(context, R.color.blue)))
     }
 }

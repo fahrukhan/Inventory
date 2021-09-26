@@ -3,4 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_desc">no description</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="disconnect">disconnect</string>
 </resources>

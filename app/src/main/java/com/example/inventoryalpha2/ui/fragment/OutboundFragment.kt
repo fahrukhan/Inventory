@@ -65,7 +65,7 @@ class OutFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(
-            ContextCompat.getColor(context, R.color.red)))
+//        (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(ColorDrawable(
+//            ContextCompat.getColor(context, R.color.red)))
     }
 }

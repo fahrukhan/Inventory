@@ -55,9 +55,8 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    //UI utility
     implementation 'com.github.st235:expandablebottombar:1.4.0'
-
     implementation 'com.github.GrenderG:Toasty:1.5.2'
-
     implementation "com.github.mancj:SlideUp-Android:2.2.8"
 }

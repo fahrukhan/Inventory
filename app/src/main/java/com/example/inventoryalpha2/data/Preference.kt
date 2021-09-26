@@ -16,11 +16,24 @@ class Preference(context: Context, name: Name) {
         return pref.getString(key.toString(), "")
     }
 
+    fun writeBool(key: Key, value: Boolean){
+        with(pref.edit()){
+            putBoolean(key.toString(), value)
+            commit()
+        }
+    }
+
+    fun readBool(key: Key, defValue: Boolean): Boolean {
+        return pref.getBoolean(key.toString(), defValue)
+    }
+
     enum class Name{
         BLUETOOTH
     }
 
     enum class Key{
-        BLUETOOTH_ADDRESS
+        BLUETOOTH_ADDRESS,
+        BLUETOOTH_NAME,
+        AUTO_RECONNECT
     }
 }
